@@ -1,0 +1,18 @@
+这个项目是徒手建立的maven项目，但是自己还是不懂，大致的步骤都知道了。
+一，进入Maven的安装目录，找到conf文件夹，打开settings.xml文件，修改本地仓库路径
+<localRepository>D:\maven\repository</localRepository>
+二，进入工程存放的目录，也就是工作目录，打开cmd,输入:mvn archetype:create -DgroupId=com.maven.test -DartifactId=HelloMaven -DpackageName=com.maven.test 回车
+
+<modelVersion>： pom.xml 使用的对象模型版本,在Maven2中都是4.0.0
+<groupId>：创建项目的组织或团体的唯一 Id
+<artifactId > ：项目的唯一 Id, 可视为项目名 .
+<version > ：产品的版本号 .
+<packaging > ：打包物的扩展名，一般有 JAR,WAR,EAR 等 
+<name > ：项目的显示名，常用于 Maven 生成的文档。 
+<url > ：组织的站点，常用于 Maven 生成的文档。 
+<properties>：资源，并可以设置资源的编码
+<dependencies>：jar依赖
+
+
+三,生成的HelloMaven文件就是刚刚创建的,进入该文件夹,运行:mvn install
+四，执行java -cp target/HelloMaven-1.0-SNAPSHOT.jar com.maven.test.App		就会看到输出语句"Hello World!"
