@@ -1,10 +1,14 @@
 package com.bena.test;
 
 import java.net.UnknownHostException;
+import java.util.List;
 
 import org.junit.Before;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 
 public class Test {
     
@@ -88,8 +92,21 @@ public class Test {
     @org.junit.Test
     public void query() {
 	
+	//查询记录总数
 	long count = collection.getCount();
 	System.out.println(count);
 	
+	//查询所有
+	DBCursor cursor = collection.find();
+	System.out.println(cursor.length());
+	
+	//查询出年龄等于24的数据
+	cursor = collection.find(new BasicDBObject("age", 24));
+	List<DBObject> array = cursor.toArray();
+	System.out.println(array.size());
+	
+	List<DBObject> list = collection.find(new BasicDBObject("age", new BasicDBObject("$gte", 24))).toArray();
+	System.out.println("年龄大于24岁的：" + list.toString());
+	System.out.println(list.size());
     }
 }
