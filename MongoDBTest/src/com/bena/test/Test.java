@@ -2,15 +2,27 @@ package com.bena.test;
 
 import java.net.UnknownHostException;
 
-import com.mongodb.BasicDBObject;
+import org.junit.Before;
+
 import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.sun.istack.internal.logging.Logger;
 
 public class Test {
+    
+    private DBCollection collection;
+    
+    @Before
+    public void init() {
+	
+	try {
+	    
+	    collection = TestConfig.getCollection("localhost", 27017, "MongoDBTest", "user");
+	} catch (UnknownHostException e) {
+	    
+	    e.printStackTrace();
+	}
+    }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 	
 	String host = "localhost";
 	int port = 27017;
@@ -38,11 +50,11 @@ public class Test {
 	    
 	    //查询出所有记录,显示每条记录
 	    DBCursor cursor = collection.find();
-	    /*while (cursor.hasNext()) {
+	    while (cursor.hasNext()) {
 		
 		DBObject dbObject = cursor.next();
 		System.out.println(dbObject.toString());
-	    }*/
+	    }
 	    
 	    //查询当前文档数据的记录总数
 	    long count = collection.count();
@@ -59,15 +71,25 @@ public class Test {
 		System.out.println(dbCursor.next().toString());
 	    }
 	    
-	    /*dbCursor = collection.find(new BasicDBObject("age", "$gt 22"));
+	    dbCursor = collection.find(new BasicDBObject("age", "$gt 22"));
 	    while (dbCursor.hasNext()) {
 		
 		System.out.println(dbCursor.next().toString());
-	    }*/
+	    }
+	    
+	    
 	    
 	} catch (UnknownHostException e) {
 	    
 	    e.printStackTrace();
 	}
+    }*/
+    
+    @org.junit.Test
+    public void query() {
+	
+	long count = collection.getCount();
+	System.out.println(count);
+	
     }
 }
