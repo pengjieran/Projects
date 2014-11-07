@@ -6,6 +6,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import com.sun.istack.internal.logging.Logger;
 
 public class Test {
 
@@ -35,14 +36,34 @@ public class Test {
 	    DBObject object = collection.findOne();
 	    System.out.println(object.toString());
 	    
-	    //查询出所有记录
+	    //查询出所有记录,显示每条记录
 	    DBCursor cursor = collection.find();
-	    while (cursor.hasNext()) {
+	    /*while (cursor.hasNext()) {
 		
 		DBObject dbObject = cursor.next();
 		System.out.println(dbObject.toString());
+	    }*/
+	    
+	    //查询当前文档数据的记录总数
+	    long count = collection.count();
+	    System.out.println(count);
+	    
+	    //获取当前查询的总记录数
+	    long total = collection.count(cursor.getQuery());
+	    System.out.println(total);
+	    
+	    //按照用户名等于user1查询
+	    DBCursor dbCursor = collection.find(new BasicDBObject("name", "user1"));
+	    while (dbCursor.hasNext()) {
 		
+		System.out.println(dbCursor.next().toString());
 	    }
+	    
+	    /*dbCursor = collection.find(new BasicDBObject("age", "$gt 22"));
+	    while (dbCursor.hasNext()) {
+		
+		System.out.println(dbCursor.next().toString());
+	    }*/
 	    
 	} catch (UnknownHostException e) {
 	    
