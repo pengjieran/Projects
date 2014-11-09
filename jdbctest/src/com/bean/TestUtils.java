@@ -1,6 +1,9 @@
 package com.bean;
 
-import com.mysql.jdbc.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import java.sql.Connection;
 
 /**
  * 提供数据库连接，创建初始化数据的文件
@@ -11,8 +14,11 @@ public class TestUtils {
 	
 	private TestUtils() {}
 	
-	public static Connection getConnection() {
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		
-		return null;
+		Class.forName("com.mysql.jdbc.Driver");
+		java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", "root", "root");
+		
+		return connection;
 	}
 }
