@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import org.junit.Before;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.Bytes;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
@@ -136,6 +137,12 @@ public class Test {
 	DBCursor find3 = collection.find(new BasicDBObject("age", new BasicDBObject(QueryOperators.NIN, new int[]{25, 26, 27})));
 	System.out.println(find3.size());
 	
+	//查询排序
+	DBCursor find5 = collection.find(new BasicDBObject("age", new BasicDBObject(QueryOperators.EXISTS, true)));
+	System.out.println(find5.size());
 	
+	System.out.println("只查询age属性：" + collection.find(null, new BasicDBObject("age", true)).toArray());
+	
+
     }
 }
