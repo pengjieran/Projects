@@ -2,6 +2,7 @@ package com.bena.test;
 
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.junit.Before;
 
@@ -9,6 +10,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import com.mongodb.QueryOperators;
 
 public class Test {
     
@@ -100,6 +102,11 @@ public class Test {
 	DBCursor cursor = collection.find();
 	System.out.println(cursor.length());
 	
+	//模糊查询
+	String str = "haha";
+	DBCursor find4 = collection.find(new BasicDBObject("name", Pattern.compile("^.*" + str + ".*$", Pattern.CASE_INSENSITIVE)));
+	System.out.println("模糊查询结果：" + find4.size());
+
 	//查询出年龄等于24的数据
 	cursor = collection.find(new BasicDBObject("age", 24));
 	List<DBObject> array = cursor.toArray();
@@ -109,5 +116,26 @@ public class Test {
 	List<DBObject> list = collection.find(new BasicDBObject("age", new BasicDBObject("$gte", 24))).toArray();
 	System.out.println("年龄大于24岁的：" + list.toString());
 	System.out.println(list.size());
+	
+	//查询年龄小于等于25
+	DBCursor dbCursor = collection.find(new BasicDBObject("age", new BasicDBObject("$lte", 25)));
+	/*while (dbCursor.hasNext()) {
+	    
+	    System.out.println(dbCursor.next());
+	}*/
+	
+	//查询年龄不等于25
+	DBCursor find = collection.find(new BasicDBObject("age", new BasicDBObject("$ne", 25)));
+	System.out.println(find.size());
+	
+	//查询年龄在一定范围内的数据
+	DBCursor find2 = collection.find(new BasicDBObject("age", new BasicDBObject(QueryOperators.IN, new int[]{25, 26, 27})));
+	System.out.println(find2.count());
+	
+	//查询年龄不再一定范围内的数据
+	DBCursor find3 = collection.find(new BasicDBObject("age", new BasicDBObject(QueryOperators.NIN, new int[]{25, 26, 27})));
+	System.out.println(find3.size());
+	
+	
     }
 }
