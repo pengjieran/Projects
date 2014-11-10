@@ -105,6 +105,7 @@ public class Test {
 	List<DBObject> array = cursor.toArray();
 	System.out.println(array.size());
 	
+	//查询年龄大于等于24的人的信息
 	List<DBObject> list = collection.find(new BasicDBObject("age", new BasicDBObject("$gte", 24))).toArray();
 	System.out.println("年龄大于24岁的：" + list.toString());
 	System.out.println(list.size());
