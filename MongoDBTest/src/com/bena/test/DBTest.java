@@ -4,7 +4,7 @@ import java.net.UnknownHostException;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.bson.NewBSONDecoder;
+import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -178,10 +178,16 @@ public class DBTest {
     @Test
     public void add() {
 	
+	
     }
     
     @Test
     public void remove() {
 	
+	//删除id为oid的数据
+	collection.remove(new BasicDBObject("_id", new ObjectId("oid")));
+	
+	//删除年龄大于25的数据
+	collection.remove(new BasicDBObject("sge", new BasicDBObject("$gte", 25)));
     }
 }
