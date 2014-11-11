@@ -14,6 +14,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.QueryOperators;
 import com.mongodb.WriteResult;
+import com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary;
 
 public class DBTest {
     
@@ -178,7 +179,25 @@ public class DBTest {
     @Test
     public void add() {
 	
+	//新增一个字段
+	/*DBCursor find = collection.find(new BasicDBObject("age", 10));
+	while (find.hasNext()) {
+	    
+	    DBObject object = find.next();
+	    object.put("total", 10);
+	    WriteResult save = collection.save(object);
+	    System.out.println(save.getN());
+	}*/
 	
+	//添加一条记录,list集合也可以添加
+	BasicDBObject ob = new BasicDBObject();
+	ob.put("name", "hahhaha");
+	ob.put("sex", "男");
+	ob.put("age", 15);
+	collection.insert(ob);
+	
+	DBCursor find = collection.find(new BasicDBObject("name", "hahhaha"));
+	System.out.println(find.count());
     }
     
     @Test
