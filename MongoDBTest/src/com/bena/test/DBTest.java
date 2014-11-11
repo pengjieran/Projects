@@ -4,16 +4,18 @@ import java.net.UnknownHostException;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.bson.NewBSONDecoder;
 import org.junit.Before;
+import org.junit.Test;
 
 import com.mongodb.BasicDBObject;
-import com.mongodb.Bytes;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.QueryOperators;
+import com.mongodb.WriteResult;
 
-public class Test {
+public class DBTest {
     
     private DBCollection collection;
     
@@ -92,7 +94,7 @@ public class Test {
 	}
     }*/
     
-    @org.junit.Test
+    @Test
     public void query() {
 	
 	//查询记录总数
@@ -143,6 +145,43 @@ public class Test {
 	
 	System.out.println("只查询age属性：" + collection.find(null, new BasicDBObject("age", true)).toArray());
 	
-
+	//查询age=25岁的并删除
+	collection.findAndRemove(new BasicDBObject("age", 25));
+	
+	//查询并更新
+	collection.findAndModify(new BasicDBObject("age", 25), new BasicDBObject("name", "hahaha"));
+	
+	collection.findAndModify(
+		new BasicDBObject("age", 28), //查询age=28的数据
+	        new BasicDBObject("name", true), //查询name属性
+	        new BasicDBObject("age", true), //按照age排序
+	        false, //是否删除，true表示删除
+	        new BasicDBObject("name", "Abc"), //修改的值，将name修改成Abc
+	        true,//是否返回更新后的值
+	        true);
+    }
+    
+    @Test
+    public void update() {
+	
+	//查询_id等于oid的，并将其age修改为99
+	WriteResult writeResult = collection.update(new BasicDBObject("_id", "oid"), new BasicDBObject("age", 99));
+	System.out.println(writeResult.getN());
+	
+	//查询并修改
+	collection.update(new BasicDBObject("_id", "oid"), new BasicDBObject("age", 99), 
+			true,//如果数据库不存在，是否添加 
+			false);//多条修改，false只修改第一条，true如果有多条就不修改
+	
+    }
+    
+    @Test
+    public void add() {
+	
+    }
+    
+    @Test
+    public void remove() {
+	
     }
 }
