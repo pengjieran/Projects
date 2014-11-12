@@ -3,7 +3,9 @@ package com.bean;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -102,6 +104,24 @@ public class DBTest {
 	@Test
 	public void query() {
 	    
-	    
+	    try {
+		
+		Connection connection = TestUtils.getConnection();
+		String sql = "select * from users";
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+		    
+		    String name = resultSet.getString("name");
+		    int age = resultSet.getInt("age");
+		    String sex = resultSet.getString("sex");
+		    System.out.println(name + "===========" + age + "============" + sex);
+		}
+		
+		
+	    } catch (ClassNotFoundException | SQLException e) {
+		
+		e.printStackTrace();
+	    }
 	}
 }
