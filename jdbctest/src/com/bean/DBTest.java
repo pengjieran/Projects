@@ -2,6 +2,7 @@ package com.bean;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
 import java.util.Properties;
@@ -71,5 +72,36 @@ public class DBTest {
 			
 			e.printStackTrace();
 		}
+	}
+	
+	//插入数据
+	@Test
+	public void insert() {
+	    
+	    try {
+		
+		//单语句批量插入1000条记录
+		Connection connection = TestUtils.getConnection();
+		String sql = "insert into users(name, age, sex) values(?, ?, ?)";
+		PreparedStatement prepareStatement = connection.prepareStatement(sql);
+		for (int i = 0; i < 1000; i++) {
+		    
+		    prepareStatement.setString(1, "users" + i);
+		    prepareStatement.setInt(2, i + 10);
+		    prepareStatement.setString(3, (i / 2 == 0) ? "男" : "女");
+		    prepareStatement.executeUpdate();
+		}
+		
+	    } catch (ClassNotFoundException | SQLException e) {
+		
+		e.printStackTrace();
+	    }
+	}
+	
+	//查询
+	@Test
+	public void query() {
+	    
+	    
 	}
 }
