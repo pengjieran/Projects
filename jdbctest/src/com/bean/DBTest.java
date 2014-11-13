@@ -133,6 +133,11 @@ public class DBTest {
 		
 		Connection connection = TestUtils.getConnection();
 		
+		String sql = "update users set sex = '男', name = 'aa', age = 25 where id = 1";
+		Statement statement = connection.createStatement();
+		int update = statement.executeUpdate(sql);
+		connection.commit();
+		System.out.println(update);
 		
 	    } catch (ClassNotFoundException | SQLException e) {
 		
@@ -148,7 +153,12 @@ public class DBTest {
 	    try {
 		
 		Connection connection = TestUtils.getConnection();
-		
+		String sql = "delete from users where id = 1";
+		Statement statement = connection.createStatement();
+		int i = statement.executeUpdate(sql);
+		//autocommit=true的时候提交事物会报错
+		//connection.commit();
+		System.out.println(i);
 	    } catch (ClassNotFoundException | SQLException e) {
 		
 		e.printStackTrace();
