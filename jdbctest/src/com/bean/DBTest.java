@@ -124,4 +124,34 @@ public class DBTest {
 		e.printStackTrace();
 	    }
 	}
+	
+	//数据更新
+	@Test
+	public void update() {
+	    
+	    try {
+		
+		Connection connection = TestUtils.getConnection();
+		
+		
+	    } catch (ClassNotFoundException | SQLException e) {
+		
+		e.printStackTrace();
+	    }
+	    
+	}
+	
+	//删除
+	@Test
+	public void delete() {
+	    
+	    try {
+		
+		Connection connection = TestUtils.getConnection();
+		
+	    } catch (ClassNotFoundException | SQLException e) {
+		
+		e.printStackTrace();
+	    }
+	}
 }
