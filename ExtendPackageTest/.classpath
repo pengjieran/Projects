@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="lib/commons-dbutils-1.6/commons-dbutils-1.6-sources.jar"/>
 	<classpathentry kind="lib" path="lib/commons-dbutils-1.6/commons-dbutils-1.6-test-sources.jar"/>
 	<classpathentry kind="lib" path="lib/commons-dbutils-1.6/commons-dbutils-1.6-tests.jar" sourcepath="lib/commons-dbutils-1.6/commons-dbutils-1.6-test-sources.jar"/>
-	<classpathentry kind="lib" path="lib/commons-dbutils-1.6/commons-dbutils-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbutils-1.6/commons-dbutils-1.6.jar" sourcepath="lib/commons-dbutils-1.6/commons-dbutils-1.6-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.34-bin.jar"/>
 	<classpathentry kind="output" path="class"/>
