@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.bean.dbutils.DBURL.DBType;
@@ -18,12 +19,12 @@ public class DBUtilsTest {
     
     private static final String password = "root";
     
+    private static Connection connection;
+    
     @Test
     public void DBTest() {
 	
 	try {
-	    
-	    Connection connection = getInstance(DBDriver.MYSQL, DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
 	    
 	    BeanListHandler<Users> beanListHandler = new BeanListHandler<Users>(Users.class);
 	    QueryRunner queryRunner = new QueryRunner();
@@ -65,13 +66,16 @@ public class DBUtilsTest {
 	
     }
     
-    private Connection getInstance(String driverName, String url, String user, String password) throws SQLException {
+    @Before
+    public void getInstance() throws SQLException {
 	
 	//加载数据库驱动
-	DbUtils.loadDriver(driverName);
+	DbUtils.loadDriver(DBDriver.MYSQL);
 	//获取链接
-	Connection connection = DriverManager.getConnection(url, user, password);
+	if (null == connection) {
+	    
+	    connection = DriverManager.getConnection(DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
+	}
 	
-	return connection;
     }
 }
