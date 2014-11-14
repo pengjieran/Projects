@@ -22,7 +22,7 @@ public class DBUtilsTest {
 	
 	try {
 	    
-	    Connection connection = getInstance(DBDriver.MYSQLDRIVER, DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
+	    Connection connection = getInstance(DBDriver.MYSQL, DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
 	    Statement statement = connection.createStatement();
 	    ResultSet resultSet = statement.executeQuery("select * from users");
 	    System.out.println(resultSet.wasNull());
