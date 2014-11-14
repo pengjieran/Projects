@@ -47,6 +47,24 @@ public class DBUtilsTest {
 	
     }
     
+    @Test
+    public void insert() {
+	
+	
+    }
+    
+    @Test
+    public void update() {
+	
+	
+    }
+    
+    @Test
+    public void delete() {
+	
+	
+    }
+    
     private Connection getInstance(String driverName, String url, String user, String password) throws SQLException {
 	
 	//加载数据库驱动
