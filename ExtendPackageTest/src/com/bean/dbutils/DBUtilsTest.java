@@ -2,11 +2,12 @@ package com.bean.dbutils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.List;
 
 import org.apache.commons.dbutils.DbUtils;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.junit.Test;
 
 import com.bean.dbutils.DBURL.DBType;
@@ -23,14 +24,26 @@ public class DBUtilsTest {
 	try {
 	    
 	    Connection connection = getInstance(DBDriver.MYSQL, DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
-	    Statement statement = connection.createStatement();
-	    ResultSet resultSet = statement.executeQuery("select * from users");
-	    System.out.println(resultSet.wasNull());
+	    
+	    BeanListHandler<Users> beanListHandler = new BeanListHandler<Users>(Users.class);
+	    QueryRunner queryRunner = new QueryRunner();
+	    List<Users> userList = queryRunner.query(connection, "select * from users", beanListHandler);
+	    
+	    for (Users user : userList) {
+		
+		System.out.println(user.toString());
+	    }
 	    DbUtils.close(connection);
 	} catch (SQLException e) {
 	    
 	    e.printStackTrace();
 	}
+	
+    }
+    
+    @Test
+    public void query() {
+	
 	
     }
     
