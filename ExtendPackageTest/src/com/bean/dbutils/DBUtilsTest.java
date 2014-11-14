@@ -2,14 +2,16 @@ package com.bean.dbutils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.apache.commons.dbutils.DbUtils;
 import org.junit.Test;
 
+import com.bean.dbutils.DBURL.DBType;
+
 public class DBUtilsTest {
-    
-    private static final String url = "jdbc:mysql://localhost/testdb?useUnicode=true&characterEncoding=utf8";
     
     private static final String user = "root";
     
@@ -20,7 +22,10 @@ public class DBUtilsTest {
 	
 	try {
 	    
-	    Connection connection = getInstance(DBDriver.MYSQLDRIVER, url, user, password);
+	    Connection connection = getInstance(DBDriver.MYSQLDRIVER, DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
+	    Statement statement = connection.createStatement();
+	    ResultSet resultSet = statement.executeQuery("select * from users");
+	    System.out.println(resultSet.wasNull());
 	    DbUtils.close(connection);
 	} catch (SQLException e) {
 	    
