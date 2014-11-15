@@ -12,8 +12,10 @@ import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.KeyedHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -112,7 +114,24 @@ public class DBUtilsTest {
 	    System.out.println(object.toString());
 	}
 	
+	//ArrayListHandler存储方式查询
 	ArrayListHandler arrayListHandler = new ArrayListHandler();
+	List<Object[]> query = runner.query(connection, "select * from users where age > ?", arrayListHandler, new Object[]{"1005"});
+	for (Object[] objects2 : query) {
+	    
+	    System.out.println(objects2[1].toString());
+	}
+	
+	//ScalarHandler存储方式查询
+	ScalarHandler<String> scalarHandler = new ScalarHandler<String>("name");
+	String query2 = runner.query(connection, "select * from users where age > ?", scalarHandler, new Object[]{"1005"});
+	System.out.println(query2);
+	
+	//KeyedHandler存储方式查询
+	KeyedHandler<String> keyedHandler = new KeyedHandler<String>("name");
+	Map<String, Map<String, Object>> map = runner.query(connection, "select * from users where age > ?", keyedHandler, new Object[]{"1005"});
+	Map<String, Object> ob = map.get("users996");
+	System.out.println(ob.get("name").toString());
     }
     
     @Test
