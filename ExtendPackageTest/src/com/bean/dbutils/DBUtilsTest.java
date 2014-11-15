@@ -4,10 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
+import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,9 +48,57 @@ public class DBUtilsTest {
     }
     
     @Test
-    public void query() {
+    public void query() throws SQLException {
+
+	//采用MapHandler存储方式查询
+	MapHandler handler = new MapHandler();
+	QueryRunner runner = new QueryRunner();
+	try {
+	    
+	    Map<String, Object> query = runner.query(connection,"select * from users where id = ?", handler, new Object[]{"5"});
+	    System.out.println(query.get("name"));
+	    
+	} catch (SQLException e) {
+	    
+	    e.printStackTrace();
+	}
 	
+	//采用MapListHandler存储方式查询
+	MapListHandler mapListHandler = new MapListHandler();
+	try {
+	    
+	    List<Map<String, Object>> query = runner.query(connection, "select * from users where id = ?", mapListHandler, new Object[]{"5"});
+	    for (int i = 0; i < query.size(); i++) {
+		
+		Map<String, Object> map = query.get(i);
+		System.out.println(map.get("name"));
+	    }
+	} catch (SQLException e) {
+	    
+	    e.printStackTrace();
+	}
 	
+	//采用BeanHandler存储方式查询
+	BeanHandler<Users> beanHandler = new BeanHandler<Users>(Users.class);
+	Users users = runner.query(connection, "select * from users where id = ?", beanHandler, new Object[]{"5"});
+	System.out.println(users.getName());
+	
+	//BeanListHandler存储方式查询
+	BeanListHandler<Users> beanListHandler = new BeanListHandler<Users>(Users.class);
+	List<Users> list = runner.query(connection, "select * from users where age > ?", beanListHandler, new Object[]{"1007"});
+	for (Users user : list) {
+	    
+	    System.out.println(user.getAge());
+	}
+	
+	//ArrayHandler存储方式查询,返回一个对象的值，有多个对象则只返第一个对象值
+	ArrayHandler arrayHandler = new ArrayHandler();
+	Object[] objects = runner.query(connection, "select * from users where age > ?", arrayHandler, new Object[]{"1005"});
+	for (Object object : objects) {
+	    
+	    
+	    System.out.println(object.toString());
+	}
     }
     
     @Test
@@ -77,5 +130,13 @@ public class DBUtilsTest {
 	    connection = DriverManager.getConnection(DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), user, password);
 	}
 	
+	try {
+	    
+	    //关闭自动提交，以可以在发生错误时进行回滚操作
+	    connection.setAutoCommit(false);
+	} catch (SQLException e) {
+	    
+	    e.printStackTrace();
+	}
     }
 }
