@@ -140,9 +140,21 @@ public class DBUtilsTest {
 	
     }
     
+    //修改数据
     @Test
     public void update() {
-	
+    	
+    	QueryRunner runner = new QueryRunner();
+    	try {
+    		
+			int update = runner.update(connection, "update users set name = ?, age = ? where id = ?", new Object[]{"aaa","28","1"});
+			//需要注意在初始化连接的时候是否允许自动提交
+			connection.commit();
+			System.out.println(update);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 	
     }
     
