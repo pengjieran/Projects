@@ -160,8 +160,18 @@ public class DBUtilsTest {
     
     @Test
     public void delete() {
-	
-	
+    	
+    	QueryRunner runner = new QueryRunner();
+    	try {
+    		
+			int update = runner.update(connection, "delete from users where id = ?", new Object[]{"1"});
+			connection.commit();
+			System.out.println(update);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
     
     @Before
