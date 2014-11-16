@@ -137,7 +137,7 @@ public class DBUtilsTest {
     @Test
     public void insert() {
 	
-	
+    	//TODO update和insert都可以插入数据还是insert是另外的用途？
     }
     
     //修改数据
