@@ -138,6 +138,15 @@ public class DBUtilsTest {
     public void insert() {
 	
     	//TODO update和insert都可以插入数据还是insert是另外的用途？
+	QueryRunner runner = new QueryRunner();
+	try {
+	    
+	    int update = runner.update(connection, "insert into users(name, age,sex) values(?,?,?)", new Object[]{"aaa", 250, "男"});
+	    System.out.println(update);
+	    
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
     }
     
     //修改数据
@@ -147,14 +156,14 @@ public class DBUtilsTest {
     	QueryRunner runner = new QueryRunner();
     	try {
     		
-			int update = runner.update(connection, "update users set name = ?, age = ? where id = ?", new Object[]{"aaa","28","1"});
-			//需要注意在初始化连接的时候是否允许自动提交
-			connection.commit();
-			System.out.println(update);
-		} catch (SQLException e) {
+		int update = runner.update(connection, "update users set name = ?, age = ? where id = ?", new Object[]{"aaa","28","1"});
+		//需要注意在初始化连接的时候是否允许自动提交
+		connection.commit();
+		System.out.println(update);
+	} catch (SQLException e) {
 			
-			e.printStackTrace();
-		}
+		e.printStackTrace();
+	}
 	
     }
     
@@ -167,10 +176,10 @@ public class DBUtilsTest {
 			int update = runner.update(connection, "delete from users where id = ?", new Object[]{"1"});
 			connection.commit();
 			System.out.println(update);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	} catch (SQLException e) {
+			
+	    e.printStackTrace();
+	}
     	
     }
     
