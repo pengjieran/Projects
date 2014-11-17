@@ -141,9 +141,15 @@ public class DBUtilsTest {
 	QueryRunner runner = new QueryRunner();
 	try {
 	    
-	    int update = runner.update(connection, "insert into users(name, age,sex) values(?,?,?)", new Object[]{"aaa", 250, "男"});
-	    System.out.println(update);
+	    /*int update = runner.update(connection, "insert into users(name, age,sex) values(?,?,?)", new Object[]{"aaa", 250, "男"});
+	    System.out.println(update);*/
 	    
+	    //不知为何这里做了插入，数据也放进去了，但是返回结果是空的
+	    BeanHandler<Users> beanHandler = new BeanHandler<Users>(Users.class);
+	    
+	    Users user = runner.insert(connection, "insert into users(name, age,sex) values(?,?,?)", beanHandler, new Object[]{"aa", 25, "女"});
+	    connection.commit();
+	    System.out.println(user.getName());
 	} catch (SQLException e) {
 	    e.printStackTrace();
 	}
