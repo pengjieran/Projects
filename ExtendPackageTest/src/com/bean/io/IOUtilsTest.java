@@ -36,8 +36,9 @@ public class IOUtilsTest {
 	
 	File file = new File("");
 	String absolutePath = file.getAbsolutePath();
+	String filePath = absolutePath + "\\src\\com\\bean\\io\\test\\test1\\test2\\sbt.txt";
 	System.out.println(absolutePath);
-	long size = FileUtils.sizeOf(new File(absolutePath + "\\src\\com\\bean\\io\\test"));
+	long size = FileUtils.sizeOf(new File(absolutePath + "\\src\\com\\bean\\io\\test\\test1\\test2\\sbt.txt"));
 	System.out.println(absolutePath + "\\src\\com\\bean\\io\\test");
 	System.out.println(size);
     }
