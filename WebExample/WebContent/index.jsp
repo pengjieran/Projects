@@ -5,8 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>你好中国</title>
+<script type="text/javascript">
+	function login()
+	{
+		window.location = "http://localhost:8080/WebExample/login";
+	}
+</script>
 </head>
 <body>
-<%=request.getContextPath()%>
+
+<table>
+	<tr>
+		<td><input type="button" name="login" value="登陆" onclick="login()" /> </td>
+	</tr>
+</table>
 </body>
 </html>
