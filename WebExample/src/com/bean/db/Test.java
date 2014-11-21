@@ -11,11 +11,13 @@ import com.bean.db.DBURL.DBType;
 public class Test {
 
 	public static void main(String[] args) {
+		
 		DbUtils.loadDriver(DBDriver.ORACLE);
 		try {
 			
-			Connection connection = DriverManager.getConnection(DBURL.getURL(DBType.ORACLE, "192.168.124.128", "1521", "xe", DBURL.UTF8), "sysdba", "");
+			Connection connection = DriverManager.getConnection(DBURL.getURL(DBType.MYSQL, "localhost", "3306", "testdb", DBURL.UTF8), "root", "root");
 			
+			System.out.println(connection.getAutoCommit());
 			
 		} catch (SQLException e) {
 			
