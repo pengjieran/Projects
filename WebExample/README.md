@@ -32,6 +32,9 @@ WebExample
                 <password>root</password>    
             </security>    
          </datasource>
+         
+         
+    该系统会变成一个完整的系统，包含增删改查和其它的一些功能
 
     Dean
     jierancto@163.com
