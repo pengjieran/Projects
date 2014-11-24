@@ -2,16 +2,20 @@ package com.bean.entity;
 
 public class UserInfo {
 	
-	private String username;
+	private String loginname;
 	
 	private String password;
+	
+	private Photo photo;
+	
+	private Name name;
 
-	public String getUsername() {
-		return username;
+	public String getLoginname() {
+		return loginname;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
 	}
 
 	public String getPassword() {
@@ -22,47 +26,20 @@ public class UserInfo {
 		this.password = password;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
-		result = prime * result
-				+ ((username == null) ? 0 : username.hashCode());
-		return result;
+	public Photo getPhoto() {
+		return photo;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserInfo other = (UserInfo) obj;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
+	public void setPhoto(Photo photo) {
+		this.photo = photo;
 	}
 
-	public UserInfo(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
+	public Name getName() {
+		return name;
 	}
 
-	public UserInfo() {
-		super();
+	public void setName(Name name) {
+		this.name = name;
 	}
 
 }
