@@ -3,6 +3,8 @@ package com.bean.io;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
@@ -91,6 +93,36 @@ public class IOUtilsTest {
 		} catch (IOException e) {
 			
 			e.printStackTrace();
-		}	
+		}
+    	
+    	try {
+    		
+			String readFileToString = FileUtils.readFileToString(new File(filePath));
+			System.out.println(readFileToString);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+    	
+    	try {
+    		
+    		//该部分读取输出后会出现乱码
+			String readFileToString = FileUtils.readFileToString(new File(filePath), Charset.forName("gb2312"));
+			System.out.println(readFileToString);
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+    	
+    	try {
+    		
+			List<String> readLines = FileUtils.readLines(new File(filePath));
+			//读出第二行的内容
+			System.out.println(readLines.get(2));
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
     }
 }
