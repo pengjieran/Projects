@@ -85,12 +85,12 @@ public class IOUtilsTest {
     		
 			byte[] readFileToByteArray = FileUtils.readFileToByteArray(new File(filePath));
 			
+			String str = new String(readFileToByteArray);
+			System.out.println(str);
 			
 		} catch (IOException e) {
 			
 			e.printStackTrace();
-		}
-    	
+		}	
     }
-
 }
