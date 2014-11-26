@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userName = (String) request.getAttribute("userName");
+		String userName = request.getParameter("userName");
 		System.out.println(userName);
 	}
 
