@@ -7,9 +7,9 @@ public class UserService {
 	
 	private UserDao userDao;
 	
-	public UserInfo add() {
+	public UserInfo add(UserInfo userinfo) {
 		
-		UserInfo user = userDao.addUser();
+		UserInfo user = userDao.addUser(userinfo);
 		
 		return user;
 	}
