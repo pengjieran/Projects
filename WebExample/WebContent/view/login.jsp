@@ -9,7 +9,7 @@
 </head>
 <body>
 <form action="${ctx}/login" method="post">
-<table align="center">
+<table align="center" style="margin-top: 200px;">
 	<tr>
 		<td colspan="2" align="center">用户信息</td>
 	</tr>
@@ -18,11 +18,15 @@
 		<td><input type="text" name="userName" value="${userName}" /></td>
 	</tr>
 	<tr>
-		<td>密码：</td>
+		<td>密&nbsp;&nbsp;&nbsp;&nbsp;码:</td>
 		<td><input type="password" name="password" value="" /></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="登陆" />&nbsp;&nbsp;</td>
+		<td colspan="2" align="center">
+			<input type="submit" value="登陆" />&nbsp;&nbsp;
+			<input type="button" value="注册" />&nbsp;&nbsp;
+			<input type="button" value="忘记密码" />	
+		</td>
 	</tr>
 </table>
 </form>
