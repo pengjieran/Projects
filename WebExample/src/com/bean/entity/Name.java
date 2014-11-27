@@ -2,6 +2,8 @@ package com.bean.entity;
 
 public class Name {
 	
+	private int id;
+	
 	private String firstName;
 	
 	private String lastName;
@@ -30,6 +32,14 @@ public class Name {
 
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

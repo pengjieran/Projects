@@ -2,6 +2,8 @@ package com.bean.entity;
 
 public class Photo {
 	
+	private int id;
+	
 	private String url;
 	
 	private String dir;
@@ -30,6 +32,14 @@ public class Photo {
 
 	public void setIconName(String iconName) {
 		this.iconName = iconName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

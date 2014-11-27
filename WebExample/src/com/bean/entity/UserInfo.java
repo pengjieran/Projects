@@ -2,13 +2,15 @@ package com.bean.entity;
 
 public class UserInfo {
 	
+	private int id;
+	
 	private String loginname;
 	
 	private String password;
 	
-	private Photo photo;
+	private int photoId;
 	
-	private Name name;
+	private int nameId;
 
 	public String getLoginname() {
 		return loginname;
@@ -26,20 +28,28 @@ public class UserInfo {
 		this.password = password;
 	}
 
-	public Photo getPhoto() {
-		return photo;
+	public int getPhotoId() {
+		return photoId;
 	}
 
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setPhotoId(int photoId) {
+		this.photoId = photoId;
 	}
 
-	public Name getName() {
-		return name;
+	public int getNameId() {
+		return nameId;
 	}
 
-	public void setName(Name name) {
-		this.name = name;
+	public void setNameId(int nameId) {
+		this.nameId = nameId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
