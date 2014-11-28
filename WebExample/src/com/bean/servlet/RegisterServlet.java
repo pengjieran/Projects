@@ -28,7 +28,7 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.sendRedirect("http://localhost:8080/WebExample/registerInput");
+		
 	}
 
 	/**

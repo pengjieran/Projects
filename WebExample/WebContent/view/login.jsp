@@ -11,7 +11,7 @@
 	function register()
 	{
 		
-		window.location = "${ctx}/register";
+		window.location = "${ctx}/view/register.jsp";
 		
 	}
 </script>
@@ -33,7 +33,7 @@
 	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" value="登陆" />&nbsp;&nbsp;
-			<input type="button" value="注册" />&nbsp;&nbsp;
+			<input type="button" value="注册" onclick="javascript:register()" />&nbsp;&nbsp;
 			<input type="button" value="忘记密码" />	
 		</td>
 	</tr>
