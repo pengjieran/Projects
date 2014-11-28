@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 				if (password.equals(userInfo.getPassword())) {
 					
 					request.setAttribute("login", "success");
+					request.getRequestDispatcher("view/view.jsp").forward(request, response);
 				} else {
 					
 					request.setAttribute("login", "error");
