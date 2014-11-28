@@ -30,7 +30,7 @@ public class UserDao {
 		
 		BeanListHandler<UserInfo> beanListHandler = new BeanListHandler<UserInfo>(UserInfo.class);
 		
-		List<UserInfo> query = queryRunner.query(connection, "select * from userinfo where username = ?", beanListHandler, new Object[]{userName});
+		List<UserInfo> query = queryRunner.query(connection, "select * from userinfo where loginname = ?", beanListHandler, new Object[]{userName});
 		
 		return query;
 	}

@@ -20,7 +20,7 @@
 <form action="${ctx}/login" method="post">
 <table align="center" style="margin-top: 200px;">
 	<tr>
-		<td colspan="2" align="center">用户信息</td>
+		<td colspan="2" align="center">用户信息<font color="red">${"error" == login ? "登陆失败" : "登陆成功"}</font></td>
 	</tr>
 	<tr>
 		<td>用户名:</td>
