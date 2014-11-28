@@ -6,6 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户登陆</title>
+<script type="text/javascript">
+	
+	function register()
+	{
+		
+		window.location = "${ctx}/register";
+		
+	}
+</script>
 </head>
 <body>
 <form action="${ctx}/login" method="post">
