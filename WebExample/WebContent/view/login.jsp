@@ -5,7 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户登陆</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	
 	function register()
@@ -17,27 +27,18 @@
 </script>
 </head>
 <body>
-<form action="${ctx}/login" method="post">
-<table align="center" style="margin-top: 200px;">
-	<tr>
-		<td colspan="2" align="center">用户信息<font color="red">${"error" == login ? "登陆失败" : "登陆成功"}</font></td>
-	</tr>
-	<tr>
-		<td>用户名:</td>
-		<td><input type="text" name="userName" value="${userName}" /></td>
-	</tr>
-	<tr>
-		<td>密&nbsp;&nbsp;&nbsp;&nbsp;码:</td>
-		<td><input type="password" name="password" value="" /></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="submit" value="登陆" />&nbsp;&nbsp;
-			<input type="button" value="注册" onclick="javascript:register()" />&nbsp;&nbsp;
-			<input type="button" value="忘记密码" />	
-		</td>
-	</tr>
-</table>
-</form>
+<div class="container">
+	<form action="${ctx}/login" method="post" class="form-signin" role="form">
+		<h2 class="form-signin-heading">请登陆</h2>
+		<input name="userName" type="text" class="form-control" placeholder="用户名" required autofocus>
+		<input name="password" type="password" class="form-control" placeholder="密码" required>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" value="remember-me">记住账号
+			</label>
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>&nbsp;&nbsp;<button onclick="javascript:register()" class="btn btn-lg btn-primary btn-block" type="button">注册</button>
+	</form>
+</div>
 </body>
 </html>
