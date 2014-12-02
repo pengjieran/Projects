@@ -37,5 +37,7 @@ WebExample
     该系统会变成一个完整的系统，包含增删改查和其它的一些功能,
     重新设计其功能，先想好有哪些需要增加的功能
 
+    增加bootstrap的支持，加入bootstrap的一些特性
+
     Dean
     jierancto@163.com
