@@ -53,6 +53,7 @@ public class LoginServlet extends HttpServlet {
 			if (list.isEmpty()) {
 				
 				request.setAttribute("login", "error");
+				request.setAttribute("msg", "username");
 				request.getRequestDispatcher("view/login.jsp").forward(request, response);
 			} else {
 				
@@ -64,6 +65,7 @@ public class LoginServlet extends HttpServlet {
 				} else {
 					
 					request.setAttribute("login", "error");
+					request.setAttribute("msg", "password");
 					request.getRequestDispatcher("view/login.jsp").forward(request, response);
 				}
 			}
