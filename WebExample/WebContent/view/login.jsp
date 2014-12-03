@@ -8,6 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户登陆</title>
+<link rel="shortcut icon" href="${resources}/img/index.ico"/>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="${resources}/dist/css/bootstrap.min.css">
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
@@ -20,21 +21,20 @@
 	
 	function register()
 	{
-		
 		window.location = "${ctx}/view/register.jsp";
 		
 	}
 </script>
 </head>
 <body>
-<div class="container">
+<div class="container" style="width: 300px; margin-top: 200px">
 	<form action="${ctx}/login" method="post" class="form-signin" role="form">
-		<h2 class="form-signin-heading">请登陆</h2>
+		<h2 class="form-signin-heading" align="center">请登陆</h2>
 		<input name="userName" type="text" class="form-control" placeholder="用户名" required autofocus>
 		<input name="password" type="password" class="form-control" placeholder="密码" required>
 		<div class="checkbox">
 			<label>
-				<input type="checkbox" value="remember-me">记住账号
+				<input type="checkbox" value="remember" name="remeber">记住账号
 			</label>
 		</div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>&nbsp;&nbsp;<button onclick="javascript:register()" class="btn btn-lg btn-primary btn-block" type="button">注册</button>
