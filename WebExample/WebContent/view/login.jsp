@@ -12,7 +12,6 @@
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="${resources}/dist/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="${resources}/dist/grumble/css/grumble.min.css">
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <link rel="stylesheet" href="${resources}/dist/css/bootstrap-theme.min.css">
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -20,37 +19,17 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="${resources}/dist/js/bootstrap.min.js"></script>
 
-<script src="${resources}/dist/grumble/js/Bubble.js"></script>
-<script src="${resources}/dist/grumble/js/jquery.grumble.min.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function() {
 			
-		$('#userName').grumble(
-			{
-				text: '用户名不存在！', 
-				angle: 180, 
-				distance: 0, 
-				showAfter: 2000,
-				type: 'alt-', 
-				hideAfter: 2000
-			});
-	
-		$('#password').grumble(
-			{
-				text: '密码错误！', 
-				angle: 180, 
-				distance: 0, 
-				showAfter: 2000,
-				type: 'alt-', 
-				hideAfter: 2000
-			});
+		
 	});
 	
 	function register()
 	{
-		window.location = "${ctx}/view/register.jsp";
 		
+		window.location = "${ctx}/view/register.jsp";
 	}
 	
 	
