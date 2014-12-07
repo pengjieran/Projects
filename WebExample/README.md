@@ -39,5 +39,7 @@ WebExample
 
     增加bootstrap的支持，加入bootstrap的一些特性
 
+    重新思考，可能这个项目担负的任务太多了
+
     Dean
     jierancto@163.com
