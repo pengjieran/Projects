@@ -39,7 +39,8 @@ WebExample
 
     增加bootstrap的支持，加入bootstrap的一些特性
 
-    重新思考，可能这个项目担负的任务太多了
+    重新思考，可能这个项目担负的任务太多了,
+    滥竽充数的，每天很少时间，看来要做好规划了
 
     Dean
     jierancto@163.com
