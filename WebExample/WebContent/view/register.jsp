@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="./common.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,17 +17,28 @@
 
 </head>
 <body>
-<h1>您好</h1>
-<table align="center" style="margin-top: 200px;">
-	<tr>
-		<td colspan="2">用户注册信息，包含头像</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
-<button class="btn btn-lg btn-primary" type="button">确定</button>
-注册页面需要加入很多的东西,在考虑加入bootstrap的东西
+<form action="${ctx}/register" method="post" enctype="multipart/form-data">
+	<table align="center" style="margin-top: 200px;">
+		<tr>
+			<td colspan="2"><h2 class="form-signin-heading" align="center">请输入用户信息</h2></td>
+		</tr>
+		<tr>
+			<td>用户名:</td>
+			<td><input type="text" name="username" class="form-control" placeholder="用户名" required autofocus /></td>
+		</tr>
+		<tr>
+			<td>密码:</td>
+			<td><input type="password" name="password" class="form-control" placeholder="密码" required /></td>
+		</tr>
+		<tr>
+			<td>头像上传:</td>
+			<td><input type="file" name="photo" /></td>
+		</tr>
+		<tr>
+			<td><button class="btn btn-lg btn-primary" type="submit">注册</button></td>
+			<td></td>
+		</tr>
+	</table>
+</form>
 </body>
 </html>
