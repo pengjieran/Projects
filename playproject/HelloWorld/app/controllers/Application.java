@@ -7,8 +7,8 @@ import views.html.*;
 
 public class Application extends Controller {
 
-    public static Result index() {
-        return ok("被修正过的首页");
+    public static Result hello(String name) {
+        return ok("传递进来的值：" + name);
     }
 
 }
