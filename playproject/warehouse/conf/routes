@@ -5,5 +5,13 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+GET		/products/					controllers.Products.list()
+GET		/products/new				controllers.Products.add()
+GET		/products/:ean				controllers.Products.detail(ean: String)
+GET		/products/save					controllers.Products.save()
+GET		/products/index					controllers.Products.index()
+POST	/products/					controllers.Products.delete()
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
