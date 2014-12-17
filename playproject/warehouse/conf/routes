@@ -6,7 +6,7 @@
 GET     /                           controllers.Application.index()
 
 GET		/products/					controllers.Products.list()
-GET		/products/new				controllers.Products.add()
+GET		/products/new				controllers.Products.newProduct()
 GET		/products/:ean				controllers.Products.detail(ean: String)
 GET		/products/save					controllers.Products.save()
 GET		/products/index					controllers.Products.index()

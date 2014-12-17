@@ -7,6 +7,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.products.list;
+import views.html.products.details;
 
 public class Products extends Controller {
 	
@@ -31,7 +32,7 @@ public class Products extends Controller {
 	
 	public static Result add() {
 		
-		return TODO;
+		return ok();
 	}
 	
 	public static Result save() {
