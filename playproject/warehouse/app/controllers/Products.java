@@ -13,11 +13,6 @@ public class Products extends Controller {
 	
 	private static final Form<Product> productForm = Form.form(Product.class);
 	
-	public static Result index() {
-		
-		return TODO;
-	}
-	
 	public static Result newProduct() {
 		
 		return ok(details.render(productForm));
@@ -37,7 +32,12 @@ public class Products extends Controller {
 	
 	public static Result save() {
 		
-		return TODO;
+		Form<Product> boundForm = productForm.bindFromRequest();
+		Product product = boundForm.get();
+		
+		product.save();
+		
+		return redirect(routes.Products.list());
 	}
 	
 	public static Result detail(String ean) {
