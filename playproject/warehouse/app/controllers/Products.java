@@ -6,8 +6,8 @@ import models.Product;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.products.list;
 import views.html.products.details;
+import views.html.products.list;
 
 public class Products extends Controller {
 	
@@ -42,7 +42,15 @@ public class Products extends Controller {
 	
 	public static Result detail(String ean) {
 		
-		return TODO;
+		final Product product = Product.findByEan(ean);
+		if (null == product) {
+			
+			return notFound(String.format("product %s does not exit.", ean));
+		}
+		
+		Form<Product> fileForm = productForm.fill(product);
+		return ok(details.render(fileForm));
+		
 	}
 	
 	public static Result delete() {
