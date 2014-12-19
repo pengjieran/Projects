@@ -53,9 +53,19 @@ public class Products extends Controller {
 		
 	}
 	
-	public static Result delete() {
+	public static Result delete(String ean) {
 		
-		return TODO;
+		final Product product = Product.findByEan(ean);
+		
+		if (null == product)
+		{
+			
+			return notFound(String.format("product %s does not exit", ean));
+		}
+		
+		Product.remove(product);
+		return redirect(routes.Products.list());
+		
 	}
 
 }
