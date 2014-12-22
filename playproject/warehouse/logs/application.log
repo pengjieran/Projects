@@ -1,15 +1,15 @@
-2014-12-19 18:40:18,748 - [INFO] - from play in pool-48-thread-5 
+2014-12-22 10:49:37,785 - [INFO] - from play in pool-4-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2014-12-19 18:40:29,934 - [INFO] - from play in play-internal-execution-context-1 
+2014-12-22 10:49:51,193 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-12-19 18:59:19,252 - [ERROR] - from application in New I/O worker #7 
+2014-12-22 10:55:53,242 - [ERROR] - from application in New I/O worker #4 
 
 
-! @6khbcnp2n - Internal server error, for (GET) [/products/] ->
+! @6ki4mh0jg - Internal server error, for (GET) [/products/] ->
 
-play.PlayExceptions$CompilationException: Compilation error[value details is not a member of controllers.ReverseProducts]
+play.PlayExceptions$CompilationException: Compilation error[����: �����products������]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
@@ -30,6 +30,6 @@ play.PlayExceptions$CompilationException: Compilation error[value details is not
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
 
-2014-12-19 19:00:17,600 - [INFO] - from play in play-internal-execution-context-1 
+2014-12-22 10:56:22,099 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
