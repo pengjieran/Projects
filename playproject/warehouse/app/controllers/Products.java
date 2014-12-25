@@ -62,5 +62,4 @@ public class Products extends Controller {
 		return redirect(routes.Products.list());
 		
 	}
-
 }
