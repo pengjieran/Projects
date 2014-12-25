@@ -25,11 +25,6 @@ public class Products extends Controller {
 		return ok(list.render(products));
 	}
 	
-	public static Result add() {
-		
-		return ok();
-	}
-	
 	public static Result save() {
 		
 		Form<Product> boundForm = productForm.bindFromRequest();
