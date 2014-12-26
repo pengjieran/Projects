@@ -1,4 +1,4 @@
-	maven教程：
+	maven教程：http://www.oracle.com/technetwork/cn/community/java/apache-maven-getting-started-1-406235-zhs.html
 	
 		1，安装maven，设置好环境变量
 		2，将库设置为本地文件夹，默认为C:\Users\aaron\.m2\repository文件夹
