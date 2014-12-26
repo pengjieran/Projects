@@ -1,0 +1,8 @@
+	maven教程：
+	
+		1，安装maven，设置好环境变量
+		2，将库设置为本地文件夹，默认为C:\Users\aaron\.m2\repository文件夹
+		3,mvn -v	查看maven版本
+		4,mvn archetype:generate -DgroupId=com.mycompany.helloworld -DartifactId=helloworld -Dpackage=com.mycompany.helloworld -Dversion=1.0-SNAPSHOT		创建一个helloworld程序，创建时会让你确认部分信息
+		5,cd helloworld  mvn package  打包
+		6，java -cp target/helloworld-1.0-SNAPSHOT.jar com.mycompany.helloworld.App		运行helloworld程序
