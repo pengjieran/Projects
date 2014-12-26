@@ -44,7 +44,7 @@
 
    建一个 JAVA 项目 ： mvn archetype:create -DgroupId=com.test -DartifactId=App
 
-   建一个 web 项目 ： mvn archetype:create  -DgroupId=com.test -DartifactId=web-app -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0
+   建一个 web 项目 ： mvn archetype:create  -DgroupId=com.test -DartifactId=web-app-name -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0
 
 解释：
 
