@@ -16,10 +16,10 @@ public static void main(String[] args)
       System.out.print("Enter base directory (e.g. /usr/local/jdk1.6.0/src): ");  
       String directory = in.nextLine();  
       System.out.print("Enter keyword (e.g. volatile): ");  
-      String keyword = in.nextLine();  
+      String keyword = in.nextLine();
 
-      final int FILE_QUEUE_SIZE = 10;  
-      final int SEARCH_THREADS = 100;  
+      final int FILE_QUEUE_SIZE = 10;
+      final int SEARCH_THREADS = 100;
 
       BlockingQueue<File> queue = new ArrayBlockingQueue<File>(FILE_QUEUE_SIZE);  
 
