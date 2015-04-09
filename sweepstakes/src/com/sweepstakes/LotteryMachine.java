@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class LotteryMachine {
-	
-	private static Map<Integer, Integer> goodmap = null;
 
 	/**
 	 * 抽奖机，key为指定的金额或编号，value为数量
@@ -27,16 +25,11 @@ public class LotteryMachine {
 			cur = me.getValue();
 			if (pre <= b && b < cur + pre) {
 				goodsNo = me.getKey();
-				//
-				me.setValue(cur--);
-				System.out.println("-----" + cur);
-				//
 				break;
 			} else {
 				pre += cur;
 			}
 		}
-		goodmap = goodsMap;
 		return goodsNo;
 	}
 
@@ -86,13 +79,16 @@ public class LotteryMachine {
 		map.put(1, 60000);
 		map.put(2, 30000);
 		map.put(5, 10000);
-		goodmap = map;
 		int sum = 0;
 		for (int i = 0; i < 100000; i++) {
 
-			int lottery = lottery(goodmap);
+			int lottery = lottery(map);
 			System.out.println(i + ":" + lottery);
 
+			int a = map.get(lottery);
+			a = a - 1;
+			map.replace(lottery, a);
+			System.out.println(lottery + "余量：" + a);
 			sum  = sum + lottery;
 		}
 		System.out.println(sum);
