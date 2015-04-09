@@ -1,5 +1,8 @@
 package com.sweepstakes;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -76,6 +79,20 @@ public class LotteryMachine {
 
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
+		File file = new File("result");
+		try {
+			file.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		FileWriter filewriter = null;
+		try {
+			filewriter = new FileWriter(file);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		map.put(1, 60000);
 		map.put(2, 30000);
 		map.put(5, 10000);
@@ -89,6 +106,12 @@ public class LotteryMachine {
 			a = a - 1;
 			map.replace(lottery, a);
 			System.out.println(lottery + "余量：" + a);
+			try {
+				filewriter.write(lottery + "余量：" + a + "----");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sum  = sum + lottery;
 		}
 		System.out.println(sum);
