@@ -1,12 +1,11 @@
 package com.sweepstakes.test;
 
-import java.util.UUID;
 
 public class LotteryMachineTest {
 	
 	public static void main(String[] args) {
 		
-		for (int i = 0; i < 10000; i++)
+		/*for (int i = 0; i < 10000; i++)
 		{
 			
 			UUID randomUUID = UUID.randomUUID();
@@ -18,9 +17,18 @@ public class LotteryMachineTest {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}*/
+		
+		Double total = 200000D;
+		Double suInteger = 119999D;
+		
+		Double a = suInteger/total;
+		
+		if (a.compareTo(0.6) >= 0)
+		{
+			System.out.println("相等");
 		}
-		
-		
+		System.out.println(a);
 	}
 
 }
