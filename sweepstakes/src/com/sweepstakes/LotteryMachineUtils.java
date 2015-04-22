@@ -40,22 +40,42 @@ public class LotteryMachineUtils {
 			if (award.getSurplus() > 0)
 			{
 				
-				if (award.getLevel() > 3)
+				if (award.getLevel() > 7)
 				{
 					goodsMap.put(award.getId(), award.getSurplus());
 				}
 				
-				if (rate.compareTo(0.3) >= 0 && award.getLevel().equals(3))
+				if (rate.compareTo(0.1) >= 0 && award.getLevel().equals(7))
 				{
 					goodsMap.put(award.getId(), award.getSurplus());
 				}
 				
-				if (rate.compareTo(0.6) >= 0 && award.getLevel().equals(2))
+				if (rate.compareTo(0.1) >= 0 && award.getLevel().equals(6))
 				{
 					goodsMap.put(award.getId(), award.getSurplus());
 				}
 				
-				if (rate.compareTo(0.9) >= 0 && award.getLevel().equals(1))
+				if (rate.compareTo(0.1) >= 0 && award.getLevel().equals(5))
+				{
+					goodsMap.put(award.getId(), award.getSurplus());
+				}
+				
+				if (rate.compareTo(0.1) >= 0 && award.getLevel().equals(4))
+				{
+					goodsMap.put(award.getId(), award.getSurplus());
+				}
+				
+				if (rate.compareTo(0.2) >= 0 && award.getLevel().equals(3))
+				{
+					goodsMap.put(award.getId(), award.getSurplus());
+				}
+				
+				if (rate.compareTo(0.3) >= 0 && award.getLevel().equals(2))
+				{
+					goodsMap.put(award.getId(), award.getSurplus());
+				}
+				
+				if (rate.compareTo(0.5) >= 0 && award.getLevel().equals(1))
 				{
 					goodsMap.put(award.getId(), award.getSurplus());
 				}
