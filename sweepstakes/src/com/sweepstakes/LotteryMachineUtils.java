@@ -12,6 +12,47 @@ import java.util.Map;
 public class LotteryMachineUtils {
 	
 	/**
+	 * 奖池形成规则，完成总量20%以后才将大奖加入奖池
+	 * @param awards
+	 * @param level
+	 * @return
+	 */
+	public static Map<String, Integer> getGoodNo(List<Award> awards, int level)
+	{
+		
+		Map<String, Integer> goodMaps = new HashMap<String, Integer>();
+		
+		Integer total = 0;				//总量
+		Integer surplusTotal = 0;		//余量
+		
+		//统计总量和余量，先将三等奖以下的加入奖池
+		for (Award award : awards)
+		{
+			total += award.getCount();
+			surplusTotal += award.getSurplus();
+		}
+		
+		//完成量除以总量为百分率
+		Double rate = (total.doubleValue() - surplusTotal.doubleValue())/total.doubleValue();
+		
+		for (Award award : awards)
+		{
+			if (award.getLevel() > level && award.getSurplus() > 0)
+			{
+				goodMaps.put(award.getId(), award.getSurplus());
+			}
+			
+			if (rate.compareTo(0.3) >= 0 && award.getSurplus() > 0 && award.getLevel() <= level)
+			{
+				
+				goodMaps.put(award.getId(), award.getSurplus());
+			}
+		}
+		
+		return goodMaps;
+	}
+	
+	/**
 	 * 传入奖项列表，传出幸运号，表示抽中了几等奖
 	 * @param awards
 	 * @return
