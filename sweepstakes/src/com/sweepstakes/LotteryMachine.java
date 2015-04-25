@@ -90,7 +90,6 @@ public class LotteryMachine {
 		try {
 			filewriter = new FileWriter(file);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		map.put(1, 60000);
@@ -109,7 +108,6 @@ public class LotteryMachine {
 			try {
 				filewriter.write(lottery + "余量：" + a + "----");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			sum  = sum + lottery;
