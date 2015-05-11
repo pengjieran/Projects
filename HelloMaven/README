@@ -16,3 +16,4 @@
 
 三,生成的HelloMaven文件就是刚刚创建的,进入该文件夹,运行:mvn install
 四，执行java -cp target/HelloMaven-1.0-SNAPSHOT.jar com.maven.test.App		就会看到输出语句"Hello World!"
+mvn eclipse:eclipse		生成eclipse项目
