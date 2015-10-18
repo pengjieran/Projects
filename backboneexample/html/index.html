@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>人员信息管理</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/person.css">
+    <script type="text/javascript" src="../js/jquery-2.1.4.js" ></script>
+    <script type="text/javascript" src="../js/underscore.js" ></script>
+    <script type="text/javascript" src="../js/backbone.js" ></script>
+    <script type="text/javascript" src="../js/application.js" ></script>
+
+  </head>
+  
+  <body>
+    <div id="info"></div>
+    <script type="text/template" id="tpl-item">
+		<%= (name ? name : "<li>姓名为空</li>")%>
+	</script>
+	<script type="text/template" id="tpl-top">
+		<header>
+			<input type="search" autofocus>
+		</header>
+		<div class="items"></div>
+		<footer>
+			<button>新建</button>
+		</footer>
+	</script>
+  </body>
+</html>

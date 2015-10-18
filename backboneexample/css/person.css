@@ -1,0 +1,96 @@
+body 
+{
+    font-size: 13px
+}
+.unact 
+{
+    position: relative;
+}
+.unact > *:not(.sele) 
+{
+    display: none;
+}
+button
+{
+    border:solid 1px #ccc;
+	background-color:#eee;
+	line-height:18px;
+	font-size:12px
+}
+#info 
+{
+    width:360px;
+    border:solid 1px #ccc;
+    background-color:#eee
+}
+#info .person .top {
+  width: 100%;
+}
+#info .person .top header input
+{
+    border:none;
+    height: 28px;
+    line-height: 28px;
+    width:100%;
+    font-size:20px;
+    border:solid 1px #ccc;
+	line-height:18px;
+	font-size:12px;
+	padding:3px
+}
+#info .person .top .items 
+{
+    overflow-y: scroll;
+    background-color:#fff;
+}
+#info .person .top .item 
+{
+    height: 32px;
+    padding: 0 15px;
+    line-height: 32px;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#info .person .top .item.sele 
+{
+    color: #555;
+    background: #eee;
+}
+#info .person .top footer 
+{
+    padding: 6px;
+    border-bottom: 1px solid #c5c5c5;
+    background: #fff;
+    text-align: right;
+}
+#info .person .main 
+{
+    width:100%
+}
+#info .person .main header 
+{
+    color: #333;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #fff;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    overflow: hidden;
+}
+#info .person .main header a 
+{
+    float: left;
+    line-height: 32px;
+    height: 32px;
+    padding: 0 20px;
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    text-decoration: none;
+}
+#info .person .main .content 
+{
+    padding: 20px;
+}
